@@ -11,12 +11,12 @@ import javax.inject.Singleton
 
 @Singleton
 class EventRepositoryImpl @Inject constructor(
-    private val firestore: FirebaseFirestore,
+    firestore: FirebaseFirestore,
 ) : EventRepository {
 
     private val eventsCollection = firestore.collection(Constants.EVENTS)
 
-    override fun getEventsFromFirestore() = callbackFlow {
+    override fun getAllEventsFromFirestore() = callbackFlow {
         val snapshotListener =
             eventsCollection.addSnapshotListener { snapshot, e ->
                 val eventsResponse = if (snapshot != null) {

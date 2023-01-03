@@ -8,5 +8,5 @@ typealias Events = List<Event>
 typealias EventsResponse = Response<Events>
 
 interface EventRepository {
-    fun getEventsFromFirestore(): Flow<EventsResponse>
+    fun getAllEventsFromFirestore(): Flow<EventsResponse>
 }

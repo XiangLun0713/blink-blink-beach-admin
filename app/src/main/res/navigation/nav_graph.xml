@@ -8,7 +8,7 @@
     <fragment
             android:id="@+id/eventFragment"
             android:name="me.xianglun.blinkblinkbeachadmin.ui.event.EventFragment"
-            android:label="Events"
+            android:label="Manage Events"
             tools:layout="@layout/fragment_event">
         <action
                 android:id="@+id/action_eventFragment_to_eventDetailFragment"
@@ -17,7 +17,7 @@
     <fragment
             android:id="@+id/eventDetailFragment"
             android:name="me.xianglun.blinkblinkbeachadmin.ui.eventDetail.EventDetailFragment"
-            android:label="Events"
+            android:label="Manage Events"
             tools:layout="@layout/fragment_event_detail">
         <argument
                 android:name="event"
@@ -26,11 +26,11 @@
     <fragment
             android:id="@+id/userFragment"
             android:name="me.xianglun.blinkblinkbeachadmin.ui.user.UserFragment"
-            android:label="User"
+            android:label="Manage Users"
             tools:layout="@layout/fragment_user" />
     <fragment
             android:id="@+id/reportFragment"
             android:name="me.xianglun.blinkblinkbeachadmin.ui.report.ReportFragment"
-            android:label="Report"
+            android:label="Manage Reports"
             tools:layout="@layout/fragment_report" />
 </navigation>
