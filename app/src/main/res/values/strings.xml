@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">BlinkBlinkBeachAdmin</string>
+    <string name="polluted_beach_image_provided_by_reporter">polluted beach image provided by reporter</string>
+    <string name="delete">Delete</string>
+    <string name="edit">Edit</string>
+    <string name="a_map_showing_the_location_of_the_event">A map showing the location of the event</string>
+    <string name="details_with_comma">Details:</string>
+    <string name="edit_event">Edit Event</string>
+    <string name="delete_event">Delete Event</string>
+    <string name="report">Report</string>
+    <string name="home">Home</string>
+    <string name="user">User</string>
+    <string name="events">Events</string>
 </resources>

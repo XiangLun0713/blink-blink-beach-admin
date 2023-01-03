@@ -1,17 +1,18 @@
-package me.xianglun.blinkblinkbeachadmin.ui.event
+package me.xianglun.blinkblinkbeachadmin.ui.eventDetail
 
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import dagger.hilt.android.AndroidEntryPoint
 import me.xianglun.blinkblinkbeachadmin.R
-import me.xianglun.blinkblinkbeachadmin.databinding.FragmentEventBinding
+import me.xianglun.blinkblinkbeachadmin.databinding.FragmentEventDetailBinding
 
 @AndroidEntryPoint
-class EventFragment : Fragment(R.layout.fragment_event) {
+class EventDetailFragment : Fragment(R.layout.fragment_event_detail) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val binding = FragmentEventBinding.bind(view)
+        val binding = FragmentEventDetailBinding.bind(view)
+
         binding.apply {
 
         }

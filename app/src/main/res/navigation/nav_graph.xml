@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/nav_graph"
+        app:startDestination="@id/eventFragment">
+
+    <fragment
+            android:id="@+id/eventFragment"
+            android:name="me.xianglun.blinkblinkbeachadmin.ui.event.EventFragment"
+            android:label="Events"
+            tools:layout="@layout/fragment_event">
+        <action
+                android:id="@+id/action_eventFragment_to_eventDetailFragment"
+                app:destination="@id/eventDetailFragment" />
+    </fragment>
+    <fragment
+            android:id="@+id/eventDetailFragment"
+            android:name="me.xianglun.blinkblinkbeachadmin.ui.eventDetail.EventDetailFragment"
+            android:label="Events"
+            tools:layout="@layout/fragment_event_detail">
+        <argument
+                android:name="event"
+                app:argType="me.xianglun.blinkblinkbeachadmin.data.model.Event" />
+    </fragment>
+    <fragment
+            android:id="@+id/userFragment"
+            android:name="me.xianglun.blinkblinkbeachadmin.ui.user.UserFragment"
+            android:label="User"
+            tools:layout="@layout/fragment_user" />
+    <fragment
+            android:id="@+id/reportFragment"
+            android:name="me.xianglun.blinkblinkbeachadmin.ui.report.ReportFragment"
+            android:label="Report"
+            tools:layout="@layout/fragment_report" />
+</navigation>
