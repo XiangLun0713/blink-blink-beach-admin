@@ -27,7 +27,6 @@ class EventDetailRepositoryImpl @Inject constructor(
     override suspend fun deleteEvent(eventID: String): APIState {
         return try {
             eventsCollection.document(eventID).delete().await()
-            // todo rethink whether we need to remove the event from user's registered event list
             APIState.Success
         } catch (e: Exception) {
             APIState.Error(e.message)

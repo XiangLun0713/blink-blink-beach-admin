@@ -33,4 +33,19 @@
             android:name="me.xianglun.blinkblinkbeachadmin.ui.report.ReportFragment"
             android:label="Manage Reports"
             tools:layout="@layout/fragment_report" />
+    <fragment
+            android:id="@+id/editEventFragment"
+            android:name="me.xianglun.blinkblinkbeachadmin.ui.editEvent.EditEventFragment"
+            android:label="fragment_edit_event"
+            tools:layout="@layout/fragment_edit_event" >
+        <argument
+                android:name="event"
+                app:argType="me.xianglun.blinkblinkbeachadmin.data.model.Event" />
+        <action
+                android:id="@+id/action_editEventFragment_to_eventDetailFragment"
+                app:destination="@id/eventDetailFragment"
+                app:popUpTo="@id/eventDetailFragment"
+                app:popUpToInclusive="true" />
+    </fragment>
+    <action android:id="@+id/action_global_editEventFragment" app:destination="@id/editEventFragment" />
 </navigation>

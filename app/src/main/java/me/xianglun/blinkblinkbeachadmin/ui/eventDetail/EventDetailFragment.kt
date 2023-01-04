@@ -78,6 +78,10 @@ class EventDetailFragment : Fragment(R.layout.fragment_event_detail), OnMapReady
                     }
                 }
             }
+            editEventButton.setOnClickListener {
+                val action = EventDetailFragmentDirections.actionGlobalEditEventFragment(event)
+                findNavController().navigate(action)
+            }
 
             viewLifecycleOwner.lifecycleScope.launchWhenStarted {
                 viewModel.apiState.collect { event ->

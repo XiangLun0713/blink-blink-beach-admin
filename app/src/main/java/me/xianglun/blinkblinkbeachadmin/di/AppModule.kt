@@ -8,6 +8,8 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import me.xianglun.blinkblinkbeachadmin.data.repository.editEvent.EditEventRepository
+import me.xianglun.blinkblinkbeachadmin.data.repository.editEvent.EditEventRepositoryImpl
 import me.xianglun.blinkblinkbeachadmin.data.repository.event.EventRepository
 import me.xianglun.blinkblinkbeachadmin.data.repository.event.EventRepositoryImpl
 import me.xianglun.blinkblinkbeachadmin.data.repository.eventDetail.EventDetailRepository
@@ -34,6 +36,11 @@ object AppModule {
     @Singleton
     fun provideEventRepository(eventRepositoryImpl: EventRepositoryImpl): EventRepository =
         eventRepositoryImpl
+
+    @Provides
+    @Singleton
+    fun provideEditEventRepository(editEventRepositoryImpl: EditEventRepositoryImpl): EditEventRepository =
+        editEventRepositoryImpl
 
     @Provides
     @Singleton
