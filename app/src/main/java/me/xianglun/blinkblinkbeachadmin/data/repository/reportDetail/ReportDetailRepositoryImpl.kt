@@ -6,6 +6,7 @@ import kotlinx.coroutines.tasks.await
 import me.xianglun.blinkblinkbeachadmin.data.model.User
 import me.xianglun.blinkblinkbeachadmin.util.APIState
 import me.xianglun.blinkblinkbeachadmin.util.APIStateWithValue
+import me.xianglun.blinkblinkbeachadmin.util.ReportStatus
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -30,7 +31,13 @@ class ReportDetailRepositoryImpl @Inject constructor(
     }
 
     override suspend fun rejectReport(reportId: String): APIState {
-        TODO("Not yet implemented")
+        return try{
+            reportCollection.document(reportId).update("status", ReportStatus.REJECTED).await()
+            APIState.Success
+        }catch (e: Exception){
+            APIState.Error(e.message)
+        }
+
     }
 
 

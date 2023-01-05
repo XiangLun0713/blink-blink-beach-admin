@@ -23,6 +23,7 @@ import me.xianglun.blinkblinkbeachadmin.databinding.FragmentReportDetailBinding
 import me.xianglun.blinkblinkbeachadmin.ui.eventDetail.EventDetailFragmentArgs
 import me.xianglun.blinkblinkbeachadmin.ui.main.MainActivity
 import me.xianglun.blinkblinkbeachadmin.ui.report.ReportAdapter
+import me.xianglun.blinkblinkbeachadmin.util.APIState
 import me.xianglun.blinkblinkbeachadmin.util.APIStateWithValue
 
 // TODO: Rename parameter arguments, choose names that match
@@ -57,6 +58,13 @@ class ReportDetailFragment : Fragment(R.layout.fragment_report_detail) {
             reportDetailEditText.setText(report.description)
             reportLocationEditText.setText("${report.latitude}, ${report.longitude}")
 
+            VerifyAndCreateBtn.setOnClickListener {
+                //TODO
+            }
+
+            RejectBtn.setOnClickListener {
+                viewModel.rejectEvent(report.id)
+            }
 
             viewModel.reporter.observe(viewLifecycleOwner) {
                 when (it) {
@@ -68,10 +76,33 @@ class ReportDetailFragment : Fragment(R.layout.fragment_report_detail) {
                         ).show()
                     }
                     is APIStateWithValue.Success -> {
-                        Log.d("FUCK", it.result.toString())
                         reportUsernameEditText.setText(it.result.username)
                     }
                     else -> {}
+                }
+            }
+
+            viewLifecycleOwner.lifecycleScope.launchWhenStarted {
+                viewModel.apiState.collect { state ->
+                    when (state) {
+                        is APIState.Error -> {
+                            Toast.makeText(
+                                context,
+                                state.message,
+                                Toast.LENGTH_LONG
+                            ).show()
+                        }
+                        is APIState.Loading -> {
+                        }
+                        is APIState.Success -> {
+                            findNavController().navigateUp()
+                            Toast.makeText(
+                                context,
+                                "Report Rejected",
+                                Toast.LENGTH_LONG
+                            ).show()
+                        }
+                    }
                 }
             }
         }
