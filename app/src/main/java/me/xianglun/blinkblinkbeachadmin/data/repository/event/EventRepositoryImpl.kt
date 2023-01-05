@@ -27,7 +27,7 @@ class EventRepositoryImpl @Inject constructor(
                         event.eventID = eventSnapshot.id
                         eventList.add(event)
                     }
-                    Response.Success(eventList)
+                    Response.Success(eventList.sortedBy { it.startTimeMillis })
                 } else {
                     Response.Failure(e)
                 }

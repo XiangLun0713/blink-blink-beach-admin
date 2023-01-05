@@ -367,12 +367,15 @@ class CreateEventFragment : Fragment(R.layout.fragment_create_event), OnMapReady
 
     override fun onPause() {
         super.onPause()
+
         eventMapView.onPause()
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        eventMapView.onDestroy()
+        if (this::eventMapView.isInitialized) {
+            eventMapView.onDestroy()
+        }
     }
 
     private val startForProfileImageResult =
