@@ -35,6 +35,10 @@ class ReportAdapter(
             reportIdText.text = report.id
             reportLocationText.text =
                 report.latitude.toString() + ", " + report.longitude.toString()
+            root.setOnClickListener {
+                val action = ReportFragmentDirections.actionReportFragmentToReportDetailFragment(report)
+                navController.navigate(action)
+            }
         }
     }
 

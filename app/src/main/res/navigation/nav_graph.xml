@@ -32,7 +32,11 @@
             android:id="@+id/reportFragment"
             android:name="me.xianglun.blinkblinkbeachadmin.ui.report.ReportFragment"
             android:label="Manage Reports"
-            tools:layout="@layout/fragment_report" />
+            tools:layout="@layout/fragment_report" >
+        <action
+            android:id="@+id/action_reportFragment_to_reportDetailFragment"
+            app:destination="@id/reportDetailFragment" />
+    </fragment>
     <fragment
             android:id="@+id/editEventFragment"
             android:name="me.xianglun.blinkblinkbeachadmin.ui.editEvent.EditEventFragment"
@@ -48,4 +52,12 @@
                 app:popUpToInclusive="true" />
     </fragment>
     <action android:id="@+id/action_global_editEventFragment" app:destination="@id/editEventFragment" />
+    <fragment
+        android:id="@+id/reportDetailFragment"
+        android:name="me.xianglun.blinkblinkbeachadmin.ui.reportDetail.ReportDetailFragment"
+        tools:layout="@layout/fragment_report_detail" >
+        <argument
+            android:name="report"
+            app:argType="me.xianglun.blinkblinkbeachadmin.data.model.Report" />
+    </fragment>
 </navigation>

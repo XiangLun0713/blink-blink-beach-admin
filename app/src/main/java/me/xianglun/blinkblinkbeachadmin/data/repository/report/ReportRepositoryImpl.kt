@@ -16,8 +16,6 @@ import javax.inject.Singleton
 @Singleton
 class ReportRepositoryImpl @Inject constructor(
     private val firestore: FirebaseFirestore,
-    private val storageReference: StorageReference,
-    private val firebaseStorage: FirebaseStorage,
 ) : ReportRepository {
 
     val reportsCollection = firestore.collection("reports")
