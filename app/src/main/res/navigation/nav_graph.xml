@@ -1,63 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/nav_graph"
-        app:startDestination="@id/eventFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/eventFragment">
 
     <fragment
-            android:id="@+id/eventFragment"
-            android:name="me.xianglun.blinkblinkbeachadmin.ui.event.EventFragment"
-            android:label="Manage Events"
-            tools:layout="@layout/fragment_event">
+        android:id="@+id/eventFragment"
+        android:name="me.xianglun.blinkblinkbeachadmin.ui.event.EventFragment"
+        android:label="Manage Events"
+        tools:layout="@layout/fragment_event">
         <action
-                android:id="@+id/action_eventFragment_to_eventDetailFragment"
-                app:destination="@id/eventDetailFragment" />
+            android:id="@+id/action_eventFragment_to_eventDetailFragment"
+            app:destination="@id/eventDetailFragment" />
     </fragment>
     <fragment
-            android:id="@+id/eventDetailFragment"
-            android:name="me.xianglun.blinkblinkbeachadmin.ui.eventDetail.EventDetailFragment"
-            android:label="Manage Events"
-            tools:layout="@layout/fragment_event_detail">
+        android:id="@+id/eventDetailFragment"
+        android:name="me.xianglun.blinkblinkbeachadmin.ui.eventDetail.EventDetailFragment"
+        android:label="Manage Events"
+        tools:layout="@layout/fragment_event_detail">
         <argument
-                android:name="event"
-                app:argType="me.xianglun.blinkblinkbeachadmin.data.model.Event" />
+            android:name="event"
+            app:argType="me.xianglun.blinkblinkbeachadmin.data.model.Event" />
     </fragment>
     <fragment
-            android:id="@+id/userFragment"
-            android:name="me.xianglun.blinkblinkbeachadmin.ui.user.UserFragment"
-            android:label="Manage Users"
-            tools:layout="@layout/fragment_user" />
+        android:id="@+id/userFragment"
+        android:name="me.xianglun.blinkblinkbeachadmin.ui.user.UserFragment"
+        android:label="Manage Users"
+        tools:layout="@layout/fragment_user" />
     <fragment
-            android:id="@+id/reportFragment"
-            android:name="me.xianglun.blinkblinkbeachadmin.ui.report.ReportFragment"
-            android:label="Manage Reports"
-            tools:layout="@layout/fragment_report" >
+        android:id="@+id/reportFragment"
+        android:name="me.xianglun.blinkblinkbeachadmin.ui.report.ReportFragment"
+        android:label="Manage Reports"
+        tools:layout="@layout/fragment_report">
         <action
             android:id="@+id/action_reportFragment_to_reportDetailFragment"
             app:destination="@id/reportDetailFragment" />
     </fragment>
     <fragment
-            android:id="@+id/editEventFragment"
-            android:name="me.xianglun.blinkblinkbeachadmin.ui.editEvent.EditEventFragment"
-            android:label="fragment_edit_event"
-            tools:layout="@layout/fragment_edit_event" >
+        android:id="@+id/editEventFragment"
+        android:name="me.xianglun.blinkblinkbeachadmin.ui.editEvent.EditEventFragment"
+        android:label="fragment_edit_event"
+        tools:layout="@layout/fragment_edit_event">
         <argument
-                android:name="event"
-                app:argType="me.xianglun.blinkblinkbeachadmin.data.model.Event" />
+            android:name="event"
+            app:argType="me.xianglun.blinkblinkbeachadmin.data.model.Event" />
         <action
-                android:id="@+id/action_editEventFragment_to_eventDetailFragment"
-                app:destination="@id/eventDetailFragment"
-                app:popUpTo="@id/eventDetailFragment"
-                app:popUpToInclusive="true" />
+            android:id="@+id/action_editEventFragment_to_eventDetailFragment"
+            app:destination="@id/eventDetailFragment"
+            app:popUpTo="@id/eventDetailFragment"
+            app:popUpToInclusive="true" />
     </fragment>
-    <action android:id="@+id/action_global_editEventFragment" app:destination="@id/editEventFragment" />
+    <action
+        android:id="@+id/action_global_editEventFragment"
+        app:destination="@id/editEventFragment" />
     <fragment
         android:id="@+id/reportDetailFragment"
         android:name="me.xianglun.blinkblinkbeachadmin.ui.reportDetail.ReportDetailFragment"
-        tools:layout="@layout/fragment_report_detail" >
+        tools:layout="@layout/fragment_report_detail">
         <argument
             android:name="report"
             app:argType="me.xianglun.blinkblinkbeachadmin.data.model.Report" />
+        <action
+            android:id="@+id/action_reportDetailFragment_to_createEventFragment"
+            app:destination="@id/createEventFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/createEventFragment"
+        android:name="me.xianglun.blinkblinkbeachadmin.ui.createEvent.CreateEventFragment"
+        android:label="fragment_create_event"
+        tools:layout="@layout/fragment_create_event">
+        <argument
+            android:name="event"
+            app:argType="me.xianglun.blinkblinkbeachadmin.data.model.Event" />
+        <argument
+            android:name="reportId"
+            app:argType="string" />
     </fragment>
 </navigation>

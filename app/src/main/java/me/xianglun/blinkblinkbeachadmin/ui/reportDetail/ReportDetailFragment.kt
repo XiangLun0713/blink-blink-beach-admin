@@ -18,6 +18,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_report.*
 import kotlinx.android.synthetic.main.report_card_template.*
 import me.xianglun.blinkblinkbeachadmin.R
+import me.xianglun.blinkblinkbeachadmin.data.model.Event
 import me.xianglun.blinkblinkbeachadmin.databinding.FragmentReportBinding
 import me.xianglun.blinkblinkbeachadmin.databinding.FragmentReportDetailBinding
 import me.xianglun.blinkblinkbeachadmin.ui.eventDetail.EventDetailFragmentArgs
@@ -59,7 +60,13 @@ class ReportDetailFragment : Fragment(R.layout.fragment_report_detail) {
             reportLocationEditText.setText("${report.latitude}, ${report.longitude}")
 
             VerifyAndCreateBtn.setOnClickListener {
-                //TODO
+                val event = Event(latitude = report.latitude, longitude = report.longitude)
+                val action =
+                    ReportDetailFragmentDirections.actionReportDetailFragmentToCreateEventFragment(
+                        event,
+                        report.id
+                    )
+                findNavController().navigate(action)
             }
 
             RejectBtn.setOnClickListener {

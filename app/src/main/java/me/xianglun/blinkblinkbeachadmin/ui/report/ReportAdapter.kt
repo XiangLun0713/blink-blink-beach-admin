@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import me.xianglun.blinkblinkbeachadmin.data.model.Report
 import me.xianglun.blinkblinkbeachadmin.databinding.ReportCardTemplateBinding
+import me.xianglun.blinkblinkbeachadmin.util.ReportStatus
 
 class ReportAdapter(
     private val reportList: List<Report>,
@@ -36,8 +37,11 @@ class ReportAdapter(
             reportLocationText.text =
                 report.latitude.toString() + ", " + report.longitude.toString()
             root.setOnClickListener {
-                val action = ReportFragmentDirections.actionReportFragmentToReportDetailFragment(report)
-                navController.navigate(action)
+                if (report.status == ReportStatus.PENDING) {
+                    val action =
+                        ReportFragmentDirections.actionReportFragmentToReportDetailFragment(report)
+                    navController.navigate(action)
+                }
             }
         }
     }
