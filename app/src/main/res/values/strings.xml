@@ -1,3 +1,32 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">BlinkBlinkBeachAdmin</string>
+    <string name="polluted_beach_image_provided_by_reporter">polluted beach image provided by reporter</string>
+    <string name="delete">Delete</string>
+    <string name="edit">Edit</string>
+    <string name="a_map_showing_the_location_of_the_event">A map showing the location of the event</string>
+    <string name="details_with_comma">Details:</string>
+    <string name="edit_event">Edit Event</string>
+    <string name="delete_event">Delete Event</string>
+    <string name="report">Report</string>
+    <string name="home">Home</string>
+    <string name="user">User</string>
+    <string name="events">Events</string>
+    <string name="date_with_comma">Date: %1$s</string>
+    <string name="time_with_comma">Time: %1$s</string>
+    <string name="cancel" tools:ignore="ButtonCase">cancel</string>
+    <string name="are_you_sure_you_want_to_delete_this_event">Are you sure you want to delete this event?</string>
+    <string name="register">Register</string>
+    <string name="deleted">Deleted</string>
+    <string name="past_events">Past Events</string>
+    <string name="future_events">Future Events</string>
+    <string name="save">Save</string>
+    <string name="date">Date</string>
+    <string name="time">Time</string>
+    <string name="event_name">Event name</string>
+    <string name="address">Address</string>
+    <string name="detail">Detail</string>
+    <string name="start_time">Start time</string>
+    <string name="end_time">End time</string>
+    <string name="latitude">Latitude</string>
+    <string name="longitude">Longitude</string>
 </resources>
