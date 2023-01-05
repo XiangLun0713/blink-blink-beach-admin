@@ -239,8 +239,7 @@ class CreateEventFragment : Fragment(R.layout.fragment_create_event), OnMapReady
                             eventProgressCardView.visibility = View.INVISIBLE
                             // enable save button
                             createEventButton.isEnabled = true
-                            // navigate back to event detail page
-                            findNavController().navigateUp()
+                            findNavController().navigate(R.id.reportFragment)
                             // display success message
                             Toast.makeText(
                                 context,
