@@ -39,4 +39,7 @@
     <string name="verify_create_event"><![CDATA[Verify & Create Event]]></string>
     <string name="location_icon">Location Icon</string>
     <string name="create">Create</string>
+    <string name="edit_icon">Edit Icon</string>
+    <string name="username">Username</string>
+    <string name="email">Email</string>
 </resources>

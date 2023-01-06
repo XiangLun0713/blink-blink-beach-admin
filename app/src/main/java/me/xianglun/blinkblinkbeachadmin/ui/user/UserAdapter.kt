@@ -38,9 +38,9 @@ class UserAdapter(
             userIdText.text = user.id
             userNameText.text = user.username
             root.setOnClickListener {
-//                val action =
-//                    ReportFragmentDirections.actionReportFragmentToReportDetailFragment(user)
-//                navController.navigate(action)
+                val action =
+                    UserFragmentDirections.actionUserFragmentToUserDetailFragment(user)
+                navController.navigate(action)
             }
         }
     }

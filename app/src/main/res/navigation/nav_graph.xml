@@ -27,7 +27,11 @@
         android:id="@+id/userFragment"
         android:name="me.xianglun.blinkblinkbeachadmin.ui.user.UserFragment"
         android:label="Manage Users"
-        tools:layout="@layout/fragment_user" />
+        tools:layout="@layout/fragment_user">
+        <action
+            android:id="@+id/action_userFragment_to_userDetailFragment"
+            app:destination="@id/userDetailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/reportFragment"
         android:name="me.xianglun.blinkblinkbeachadmin.ui.report.ReportFragment"
@@ -76,5 +80,13 @@
         <argument
             android:name="reportId"
             app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/userDetailFragment"
+        android:name="me.xianglun.blinkblinkbeachadmin.ui.userDetail.UserDetailFragment"
+        android:label="Manage Users">
+        <argument
+            android:name="user"
+            app:argType="me.xianglun.blinkblinkbeachadmin.data.model.User" />
     </fragment>
 </navigation>
