@@ -96,6 +96,10 @@ class CreateEventFragment : Fragment(R.layout.fragment_create_event), OnMapReady
                 false
             )
 
+            Glide.with(createEventImageView.context)
+                .load(event.imageUrl)
+                .into(createEventImageView)
+
             createEventHeader.setOnClickListener {
                 ImagePicker.with(requireActivity())
                     .crop()

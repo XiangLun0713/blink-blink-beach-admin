@@ -60,7 +60,11 @@ class ReportDetailFragment : Fragment(R.layout.fragment_report_detail) {
             reportLocationEditText.setText("${report.latitude}, ${report.longitude}")
 
             VerifyAndCreateBtn.setOnClickListener {
-                val event = Event(latitude = report.latitude, longitude = report.longitude)
+                val event = Event(
+                    latitude = report.latitude,
+                    longitude = report.longitude,
+                    imageUrl = report.imageUrl
+                )
                 val action =
                     ReportDetailFragmentDirections.actionReportDetailFragmentToCreateEventFragment(
                         event,
