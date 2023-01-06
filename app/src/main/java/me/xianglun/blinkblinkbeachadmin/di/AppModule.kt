@@ -8,12 +8,18 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import me.xianglun.blinkblinkbeachadmin.data.repository.createEvent.CreateEventRepository
+import me.xianglun.blinkblinkbeachadmin.data.repository.createEvent.CreateEventRepositoryImpl
 import me.xianglun.blinkblinkbeachadmin.data.repository.editEvent.EditEventRepository
 import me.xianglun.blinkblinkbeachadmin.data.repository.editEvent.EditEventRepositoryImpl
 import me.xianglun.blinkblinkbeachadmin.data.repository.event.EventRepository
 import me.xianglun.blinkblinkbeachadmin.data.repository.event.EventRepositoryImpl
 import me.xianglun.blinkblinkbeachadmin.data.repository.eventDetail.EventDetailRepository
 import me.xianglun.blinkblinkbeachadmin.data.repository.eventDetail.EventDetailRepositoryImpl
+import me.xianglun.blinkblinkbeachadmin.data.repository.report.ReportRepository
+import me.xianglun.blinkblinkbeachadmin.data.repository.report.ReportRepositoryImpl
+import me.xianglun.blinkblinkbeachadmin.data.repository.reportDetail.ReportDetailRepository
+import me.xianglun.blinkblinkbeachadmin.data.repository.reportDetail.ReportDetailRepositoryImpl
 import javax.inject.Singleton
 
 @Module
@@ -46,4 +52,19 @@ object AppModule {
     @Singleton
     fun provideEventDetailRepository(eventDetailRepositoryImpl: EventDetailRepositoryImpl): EventDetailRepository =
         eventDetailRepositoryImpl
+
+    @Provides
+    @Singleton
+    fun provideReportRepository(reportRepositoryImpl: ReportRepositoryImpl): ReportRepository =
+        reportRepositoryImpl
+
+    @Provides
+    @Singleton
+    fun provideReportDetailRepository(reportDetailRepositoryImpl: ReportDetailRepositoryImpl): ReportDetailRepository =
+        reportDetailRepositoryImpl
+
+    @Provides
+    @Singleton
+    fun provideCreateEventRepository(createEventRepositoryImpl: CreateEventRepositoryImpl): CreateEventRepository =
+        createEventRepositoryImpl
 }

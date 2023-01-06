@@ -8,6 +8,7 @@ import java.text.DateFormat
 @Parcelize
 data class Report(
     var id: String = "",
+    var description: String = "",
     var longitude: Double = 0.0,
     var latitude: Double = 0.0,
     var date: String = DateFormat.getDateTimeInstance().format(System.currentTimeMillis()),
