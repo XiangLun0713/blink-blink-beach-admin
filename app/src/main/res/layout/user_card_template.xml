@@ -43,18 +43,6 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/userIdText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/bitter"
-                    android:text="User ID"
-                    android:textAlignment="textStart"
-                    android:textAppearance="@style/customTitleTextAppearance"
-                    android:textSize="16sp" />
-
-                <TextView
                     android:id="@+id/userNameText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -65,6 +53,16 @@
                     android:textAlignment="textStart"
                     android:textAppearance="@style/customTitleTextAppearance"
                     android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/userIdText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/quicksand"
+                    android:text="User ID"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                    android:textSize="10sp" />
 
             </LinearLayout>
         </LinearLayout>
