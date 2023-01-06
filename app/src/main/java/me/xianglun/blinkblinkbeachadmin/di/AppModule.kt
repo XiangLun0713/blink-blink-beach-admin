@@ -20,6 +20,8 @@ import me.xianglun.blinkblinkbeachadmin.data.repository.report.ReportRepository
 import me.xianglun.blinkblinkbeachadmin.data.repository.report.ReportRepositoryImpl
 import me.xianglun.blinkblinkbeachadmin.data.repository.reportDetail.ReportDetailRepository
 import me.xianglun.blinkblinkbeachadmin.data.repository.reportDetail.ReportDetailRepositoryImpl
+import me.xianglun.blinkblinkbeachadmin.data.repository.user.UserRepository
+import me.xianglun.blinkblinkbeachadmin.data.repository.user.UserRepositoryImpl
 import javax.inject.Singleton
 
 @Module
@@ -67,4 +69,9 @@ object AppModule {
     @Singleton
     fun provideCreateEventRepository(createEventRepositoryImpl: CreateEventRepositoryImpl): CreateEventRepository =
         createEventRepositoryImpl
+
+    @Provides
+    @Singleton
+    fun provideUserRepository(userRepositoryImpl: UserRepositoryImpl): UserRepository =
+        userRepositoryImpl
 }
