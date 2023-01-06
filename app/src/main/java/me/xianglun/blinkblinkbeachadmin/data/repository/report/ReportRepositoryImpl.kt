@@ -18,7 +18,7 @@ class ReportRepositoryImpl @Inject constructor(
     private val firestore: FirebaseFirestore,
 ) : ReportRepository {
 
-    val reportsCollection = firestore.collection("reports")
+    private val reportsCollection = firestore.collection("reports")
 
     override suspend fun fetchReportList(status: ReportStatus): APIStateWithValue<List<Report>> {
         val snapshot = reportsCollection.whereEqualTo("status", status)
