@@ -33,7 +33,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/app_bar_layout"
-            android:fillViewport="true">
+            android:fillViewport="true"
+            android:id="@+id/nestedScrollView">
 
         <androidx.fragment.app.FragmentContainerView
                 android:id="@+id/nav_host_fragment"

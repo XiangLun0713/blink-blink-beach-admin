@@ -5,11 +5,14 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.channels.Channel
+import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
 import me.xianglun.blinkblinkbeachadmin.data.model.Event
 import me.xianglun.blinkblinkbeachadmin.data.model.Response
 import me.xianglun.blinkblinkbeachadmin.data.repository.event.EventRepository
 import me.xianglun.blinkblinkbeachadmin.data.repository.event.Events
+import me.xianglun.blinkblinkbeachadmin.util.APIState
 import javax.inject.Inject
 
 @HiltViewModel
@@ -22,6 +25,9 @@ class EventViewModel @Inject constructor(
 
     private val _futureEvents = MutableLiveData<Events>()
     val futureEvents: LiveData<Events> = _futureEvents
+
+    private val apiStateChannel = Channel<APIState>()
+    val apiState = apiStateChannel.receiveAsFlow()
 
     init {
         getAllEvents()
@@ -46,4 +52,8 @@ class EventViewModel @Inject constructor(
         }
     }
 
+    fun onSendCertButtonClicked() = viewModelScope.launch {
+        apiStateChannel.send(APIState.Loading)
+        apiStateChannel.send(repository.sendCertificate())
+    }
 }
