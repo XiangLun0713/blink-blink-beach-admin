@@ -42,4 +42,6 @@
     <string name="edit_icon">Edit Icon</string>
     <string name="username">Username</string>
     <string name="email">Email</string>
+    <string name="pending">Pending</string>
+    <string name="approved">Approved</string>
 </resources>
