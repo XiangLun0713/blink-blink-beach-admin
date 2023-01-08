@@ -6,5 +6,8 @@ import me.xianglun.blinkblinkbeachadmin.util.APIStateWithValue
 
 interface CreateEventRepository {
     suspend fun uploadEventImageToStorage(uri: Uri): APIStateWithValue<String>
-    suspend fun createEventOnFirestore(event: Event, reportId: String): APIStateWithValue<Event>
+    suspend fun createEventAndSendNotificationOnFirestore(
+        event: Event,
+        reportId: String
+    ): APIStateWithValue<Event>
 }

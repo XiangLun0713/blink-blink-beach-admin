@@ -29,7 +29,6 @@ import dagger.hilt.android.AndroidEntryPoint
 import me.xianglun.blinkblinkbeachadmin.R
 import me.xianglun.blinkblinkbeachadmin.data.model.Event
 import me.xianglun.blinkblinkbeachadmin.databinding.FragmentCreateEventBinding
-import me.xianglun.blinkblinkbeachadmin.ui.editEvent.EditEventFragmentDirections
 import me.xianglun.blinkblinkbeachadmin.util.APIStateWithValue
 import java.text.SimpleDateFormat
 import java.util.*
@@ -214,7 +213,7 @@ class CreateEventFragment : Fragment(R.layout.fragment_create_event), OnMapReady
                     participantIDs = event.participantIDs
                 )
 
-                viewModel.createEventOnFirestore(event, reportId)
+                viewModel.createEventAndSendNotificationOnFirestore(event, reportId)
             }
 
             viewLifecycleOwner.lifecycleScope.launchWhenStarted {
