@@ -63,7 +63,7 @@ class ReportDetailFragment : Fragment(R.layout.fragment_report_detail) {
                 val event = Event(
                     latitude = report.latitude,
                     longitude = report.longitude,
-                    imageUrl = report.imageUrl
+                    imageUrl = report.imageUrl,
                 )
                 val action =
                     ReportDetailFragmentDirections.actionReportDetailFragmentToCreateEventFragment(

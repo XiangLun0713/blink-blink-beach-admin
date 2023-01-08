@@ -3,6 +3,9 @@ package me.xianglun.blinkblinkbeachadmin.ui.createEvent
 import android.app.Activity
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
+import android.content.Context
+import android.location.Address
+import android.location.Geocoder
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
@@ -29,7 +32,6 @@ import dagger.hilt.android.AndroidEntryPoint
 import me.xianglun.blinkblinkbeachadmin.R
 import me.xianglun.blinkblinkbeachadmin.data.model.Event
 import me.xianglun.blinkblinkbeachadmin.databinding.FragmentCreateEventBinding
-import me.xianglun.blinkblinkbeachadmin.ui.editEvent.EditEventFragmentDirections
 import me.xianglun.blinkblinkbeachadmin.util.APIStateWithValue
 import java.text.SimpleDateFormat
 import java.util.*
@@ -110,6 +112,10 @@ class CreateEventFragment : Fragment(R.layout.fragment_create_event), OnMapReady
 
             viewModel.eventName.observe(viewLifecycleOwner) { eventName ->
                 eventHeaderTitleTextView.text = eventName
+            }
+
+            viewModel.latLngName.observe(viewLifecycleOwner) { (latlng, name) ->
+                addressEditText.setText(getAddressFromLatLng(requireContext(), latlng))
             }
 
             datePickerButton.setOnClickListener {
@@ -214,7 +220,7 @@ class CreateEventFragment : Fragment(R.layout.fragment_create_event), OnMapReady
                     participantIDs = event.participantIDs
                 )
 
-                viewModel.createEventOnFirestore(event, reportId)
+                viewModel.createEventAndSendNotificationOnFirestore(event, reportId)
             }
 
             viewLifecycleOwner.lifecycleScope.launchWhenStarted {
@@ -329,6 +335,19 @@ class CreateEventFragment : Fragment(R.layout.fragment_create_event), OnMapReady
         calendar.timeInMillis = millis
         val dateFormat = SimpleDateFormat("hh:mm aa")
         return dateFormat.format(calendar.time)
+    }
+
+    private fun getAddressFromLatLng(context: Context, latLng: LatLng): String? {
+        val geocoder = Geocoder(context, Locale.getDefault())
+        val addresses: List<Address> =
+            geocoder.getFromLocation(latLng.latitude, latLng.longitude, 1) as List<Address>
+        return if (addresses.isNotEmpty()) {
+            val address = addresses[0]
+            val addressLines = address.getAddressLine(0)
+            addressLines
+        } else {
+            null
+        }
     }
 
     override fun onMapReady(p0: GoogleMap) {

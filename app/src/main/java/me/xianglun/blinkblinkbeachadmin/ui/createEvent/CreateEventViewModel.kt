@@ -171,9 +171,10 @@ class CreateEventViewModel @Inject constructor(
         imageApiStateChannel.send(apiState)
     }
 
-    fun createEventOnFirestore(event: Event, reportId: String) = viewModelScope.launch {
-        eventApiStateChannel.send(APIStateWithValue.Loading)
-        val apiState = repository.createEventOnFirestore(event, reportId)
-        eventApiStateChannel.send(apiState)
-    }
+    fun createEventAndSendNotificationOnFirestore(event: Event, reportId: String) =
+        viewModelScope.launch {
+            eventApiStateChannel.send(APIStateWithValue.Loading)
+            val apiState = repository.createEventAndSendNotificationOnFirestore(event, reportId)
+            eventApiStateChannel.send(apiState)
+        }
 }
