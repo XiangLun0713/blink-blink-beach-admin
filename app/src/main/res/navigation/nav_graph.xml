@@ -72,7 +72,7 @@
     <fragment
         android:id="@+id/createEventFragment"
         android:name="me.xianglun.blinkblinkbeachadmin.ui.createEvent.CreateEventFragment"
-        android:label="Create Event"
+        android:label=""
         tools:layout="@layout/fragment_create_event">
         <argument
             android:name="event"

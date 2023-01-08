@@ -5,5 +5,6 @@ object Constants {
     const val EVENTS = "events"
     const val REPORTS = "reports"
     const val USERS = "users"
-    const val NOTIFICATION = "notifications"
+    const val NOTIFICATIONS = "notifications"
+    const val TRIGGER = "trigger"
 }

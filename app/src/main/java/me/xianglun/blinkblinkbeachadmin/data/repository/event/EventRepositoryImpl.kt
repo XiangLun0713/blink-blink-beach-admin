@@ -3,9 +3,10 @@ package me.xianglun.blinkblinkbeachadmin.data.repository.event
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.callbackFlow
+import kotlinx.coroutines.tasks.await
 import me.xianglun.blinkblinkbeachadmin.data.model.Event
-import me.xianglun.blinkblinkbeachadmin.data.model.Report
 import me.xianglun.blinkblinkbeachadmin.data.model.Response
+import me.xianglun.blinkblinkbeachadmin.util.APIState
 import me.xianglun.blinkblinkbeachadmin.util.Constants
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -16,6 +17,7 @@ class EventRepositoryImpl @Inject constructor(
 ) : EventRepository {
 
     private val eventsCollection = firestore.collection(Constants.EVENTS)
+    private val triggerCollection = firestore.collection(Constants.TRIGGER)
 
     override fun getAllEventsFromFirestore() = callbackFlow {
         val snapshotListener =
@@ -36,6 +38,15 @@ class EventRepositoryImpl @Inject constructor(
 
         awaitClose {
             snapshotListener.remove()
+        }
+    }
+
+    override suspend fun sendCertificate(): APIState {
+        return try {
+            triggerCollection.add(mapOf<Any, Any>()).await()
+            APIState.Success
+        } catch (e: Exception) {
+            APIState.Error(e.message)
         }
     }
 }

@@ -15,6 +15,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import dagger.hilt.android.AndroidEntryPoint
 import me.xianglun.blinkblinkbeachadmin.R
 import me.xianglun.blinkblinkbeachadmin.databinding.ActivityMainBinding
+import me.xianglun.blinkblinkbeachadmin.ui.createEvent.CreateEventFragment
 import me.xianglun.blinkblinkbeachadmin.ui.editEvent.EditEventFragment
 import me.xianglun.blinkblinkbeachadmin.ui.eventDetail.EventDetailFragment
 
@@ -34,7 +35,8 @@ class MainActivity : AppCompatActivity() {
             setOf(R.id.eventFragment,
                 R.id.userFragment,
                 R.id.reportFragment,
-                R.id.eventDetailFragment
+                R.id.eventDetailFragment,
+                R.id.createEventFragment
             )
         )
 
@@ -57,7 +59,7 @@ class MainActivity : AppCompatActivity() {
                     savedInstanceState: Bundle?,
                 ) {
                     when (f) {
-                        is EventDetailFragment, is EditEventFragment -> {
+                        is EventDetailFragment, is EditEventFragment, is CreateEventFragment -> {
                             topAppBar.isVisible = false
                             bottomNavigationMenu.isVisible = false
                         }

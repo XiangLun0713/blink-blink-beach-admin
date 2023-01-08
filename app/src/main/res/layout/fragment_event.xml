@@ -41,6 +41,7 @@
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager">
 
         </androidx.recyclerview.widget.RecyclerView>
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
