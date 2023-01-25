@@ -46,4 +46,5 @@
     <string name="approved">Approved</string>
     <string name="send_certification_to_past_event_s_participant">send certification to past event\'s participant</string>
     <string name="send_certificate">Send certificate</string>
+    <string name="rejected">Rejected</string>
 </resources>

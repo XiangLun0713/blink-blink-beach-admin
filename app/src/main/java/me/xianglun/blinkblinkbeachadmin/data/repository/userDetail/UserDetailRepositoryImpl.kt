@@ -2,6 +2,7 @@ package me.xianglun.blinkblinkbeachadmin.data.repository.userDetail
 
 import android.net.Uri
 import android.util.Log
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageException
@@ -17,7 +18,7 @@ import javax.inject.Singleton
 class UserDetailRepositoryImpl @Inject constructor(
     private val firestore: FirebaseFirestore,
     private val storageReference: StorageReference,
-    private val firebaseStorage: FirebaseStorage
+    private val firebaseStorage: FirebaseStorage,
 ) : UserDetailRepository {
 
     private val usersCollection = firestore.collection("users")
@@ -64,6 +65,7 @@ class UserDetailRepositoryImpl @Inject constructor(
     override suspend fun deleteUser(userId: String): APIState {
         return try {
             usersCollection.document(userId).delete().await()
+            
             APIState.Success
         } catch (e: Exception) {
             APIState.Error(e.message)
