@@ -38,6 +38,11 @@ class ReportFragment : Fragment(R.layout.fragment_report) {
                             viewModel.populateReportList(ReportStatus.APPROVED)
                             return
                         }
+                        2 -> {
+                            viewModel.clearCurrentReportList()
+                            viewModel.populateReportList(ReportStatus.REJECTED)
+                            return
+                        }
                         else -> {}
                     }
                 }
