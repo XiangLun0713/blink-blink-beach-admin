@@ -29,7 +29,6 @@
     <string name="end_time">End time</string>
     <string name="latitude">Latitude</string>
     <string name="longitude">Longitude</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="reporter_username">Reporter Username</string>
     <string name="report_details">Report Details</string>
@@ -47,4 +46,7 @@
     <string name="send_certification_to_past_event_s_participant">send certification to past event\'s participant</string>
     <string name="send_certificate">Send certificate</string>
     <string name="rejected">Rejected</string>
+    <string name="reject_event">Reject Event</string>
+    <string name="verify_report">Verify Report</string>
+    <string name="reject_report">Reject Report</string>
 </resources>

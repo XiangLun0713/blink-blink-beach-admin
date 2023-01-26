@@ -108,20 +108,33 @@
 
             </LinearLayout>
 
-            <Button
-                android:id="@+id/VerifyAndCreateBtn"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="15dp"
-                android:layout_weight="1"
-                android:text="@string/verify_create_event" />
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="30dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
 
-            <Button
-                android:id="@+id/RejectBtn"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/reject" />
+                <Button
+                        android:id="@+id/VerifyAndCreateBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="20dp"
+                        android:fontFamily="@font/bitter_regular"
+                        style="?android:attr/buttonBarButtonStyle"
+                        android:text="@string/verify_report" />
+
+                <Button
+                        android:id="@+id/RejectBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:fontFamily="@font/bitter_regular"
+                        style="?android:attr/buttonBarButtonStyle"
+                        android:text="@string/reject_report" />
+
+            </LinearLayout>
+
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
